@@ -28,7 +28,7 @@ export function AuthContextProvider({ children }: AuthProviderProps) {
   const [isUserLoading, setIsUserLoading] = useState(false);
 
   const [request, response, promptAsync] = Google.useAuthRequest({
-    clientId: '', // clienteId da aplicação que foi cadastrada no console.cloud.google.com
+    clientId: process.env.CLIENT_ID, // clienteId da aplicação que foi cadastrada no console.cloud.google.com
     redirectUri: AuthSession.makeRedirectUri({ useProxy: true }), // link de redirecionamento da aplicação
     scopes: ['profile', 'email'], // o que será acessado do usuário
   });
